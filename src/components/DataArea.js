@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DataTable from "./DataTable";
-import Nav from "./Nav";
+
 import API from "../utils/API";
 import "../styles/DataArea.css";
 import DataAreaContext from "../utils/DataAreaContext";
@@ -9,7 +9,7 @@ const DataArea = () => {
   const [developerState, setDeveloperState] = useState({
     users: [],
     order: "descend",
-    filteredUsers:[],
+    filteredUsers: [],
     headings: [
       { name: "Image", width: "10%", order: "descend" },
       { name: "name", width: "10%", order: "descend" },
@@ -19,7 +19,7 @@ const DataArea = () => {
     ],
   });
 
-  const handleSort = (heading) => {
+  const handleSort = (heading) => {                           
     let currentOrder = developerState.headings
       .filter((elem) => elem.order)
       .toString();
@@ -45,7 +45,7 @@ const DataArea = () => {
         } else {
           return a[heading].localeCompare(b[heading]);
         }
-      } else {
+      } else {              
         // account for missing values
         if (a[heading] === undefined) {
           return 1;
@@ -62,6 +62,7 @@ const DataArea = () => {
         }
       }
     };
+    
     const sortedUsers = developerState.filteredUsers.sort(compareFnc);
     const updateHeadings = developerState.headings.map((elem) => {
       elem.order = elem.name === heading ? currentOrder : elem.order;
@@ -105,10 +106,8 @@ const DataArea = () => {
     <DataAreaContext.Provider
       value={{ developerState, handleSearchChange, handleSort }}
     >
-      <Nav />
-      <div className="data-area">
-        {developerState.filteredUsers.length > 0 ? <DataTable /> : <div></div>}
-      </div>
+      <div className="data-area" />
+      {developerState.filteredUsers.length > 0 ? <DataTable /> : <div />}
     </DataAreaContext.Provider>
   );
 };

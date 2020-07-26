@@ -3,13 +3,10 @@ import DataBody from "./DataBody";
 import "../styles/DataTable.css";
 import DataAreaContext from "../utils/DataAreaContext";
 
-
 const DataTable = () => {
-const context = useContext(DataAreaContext);
+  const context = useContext(DataAreaContext);
 
-
-return (
-
+  return (
     <div className="datatable mt-5">
       <table
         id="table"
@@ -24,7 +21,6 @@ return (
                   key={name}
                   style={{ width }}
                   onClick={() => {
-                    // context.handleSort(name.toLowerCase());
                     context.handleSort(name);
                   }}
                 >
@@ -40,20 +36,6 @@ return (
       </table>
     </div>
   );
-}
+};
 
 export default DataTable;
-
-
-
-
-
-
-
-
-
-
-
-
-
-

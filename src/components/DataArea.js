@@ -37,7 +37,7 @@ const DataArea = () => {
         } else if (b[heading] === undefined) {
           return -1;
         }
-        // numerically
+       
         else if (heading === "name") {
           return a[heading].first.localeCompare(b[heading].first);
         } else if (heading === "dob") {
@@ -52,7 +52,7 @@ const DataArea = () => {
         } else if (b[heading] === undefined) {
           return -1;
         }
-        // numerically
+     
         else if (heading === "name") {
           return b[heading].first.localeCompare(a[heading].first);
         } else if (heading === "dob") {
